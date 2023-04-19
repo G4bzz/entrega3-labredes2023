@@ -1,0 +1,437 @@
+<!-- By _gabe.cc -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urubu do Pix</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+		<style>	
+			*{
+					margin: 0;
+					padding: 0;
+					scroll-behavior: smooth;
+					box-sizing: border-box;
+			}
+
+			:root{
+					--white-color: #fff;
+					--primary-color: #550055;
+					--secundary-color: #330033;
+					--universal-gap: 3rem; 
+			}
+
+			html{
+					/* padronizando a medida rem */
+					font-size: 62.5%;
+			}
+
+			body{
+					font-family: 'Open Sans', sans-serif;
+					font-size: 2rem;
+			}
+
+			h1, h2, h3, h4, h5, h6{
+					font-family: 'Montserrat', sans-serif;
+			}
+
+			h1{
+					font-size: 6rem;
+					text-transform: uppercase;
+			}
+
+			h2{
+					font-size: 5.5rem;
+			}
+
+			h3{
+					font-size: 5rem;
+			}
+
+			h4{
+					font-size: 4.5rem;
+			}
+
+			h5{
+					font-size: 4rem;
+			}
+
+			h6{
+					font-size: 3.5rem;
+			}
+
+			.main-bg{
+				background-color: #330033;
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='426' height='426' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23404' stroke-width='1.5'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23505'%3E%3Ccircle cx='769' cy='229' r='8'/%3E%3Ccircle cx='539' cy='269' r='8'/%3E%3Ccircle cx='603' cy='493' r='8'/%3E%3Ccircle cx='731' cy='737' r='8'/%3E%3Ccircle cx='520' cy='660' r='8'/%3E%3Ccircle cx='309' cy='538' r='8'/%3E%3Ccircle cx='295' cy='764' r='8'/%3E%3Ccircle cx='40' cy='599' r='8'/%3E%3Ccircle cx='102' cy='382' r='8'/%3E%3Ccircle cx='127' cy='80' r='8'/%3E%3Ccircle cx='370' cy='105' r='8'/%3E%3Ccircle cx='578' cy='42' r='8'/%3E%3Ccircle cx='237' cy='261' r='8'/%3E%3Ccircle cx='390' cy='382' r='8'/%3E%3C/g%3E%3C/svg%3E");
+				background-size: cover;
+				background-position: center center;
+				color: var(--white-color);
+			}
+
+			.main-content{
+					max-width: 120rem;
+					margin: 0 auto;
+					padding: 10rem var(--universal-gap);
+			}
+
+			.page{
+					min-height: 100vh;
+			}
+
+			.white-bg{
+					background-color: var(--white-color);
+					color: var(--primary-color);
+			}
+
+			.barra-naveg{
+					position: fixed;
+					top:0;
+					width: 100%;
+					z-index: 9999;
+			}
+
+			.menu-content{
+					max-width: 120rem;
+					margin: 0 auto;
+			}
+
+			.menu{
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+			}
+			.menu .sub-menu a{
+					padding: 2rem 0.5rem;
+					text-decoration: none;
+					display: block;
+					position: relative;
+			}
+
+			.menu .sub-menu a::after{
+					content: '';
+					position: absolute;
+					bottom: 1.5rem;
+					left: 50%;
+					width: 0;
+					border-bottom: var(--primary-color) solid;
+					transition: all 300ms ease-in-out;
+			}
+
+			.barra-naveg{
+					border-bottom: 0.1rem solid rgba(0, 0, 0, 0.116);
+			}
+
+			.menu .sub-menu a:hover::after{
+					width: 50%;
+					left: 25%;
+			}
+
+			.menu .sub-menu{
+					display: flex;
+					padding-right: var(--universal-gap);
+			}
+
+			.menu a:active, .menu a:visited, .menu a:link{
+					color: var(--primary-color);
+			}
+
+			.sub-menu a:link, .sub-menu a:visited, .sub-menu a:active{
+					color: var(--primary-color);
+			}
+
+			.nome-site{
+					display: flex;
+					font-style: bold;
+					color: var(--secundary-color);
+					padding-left: var(--universal-gap);
+			}
+
+			.nome-site a{
+					text-decoration: none;
+					height: 4rem;
+			}
+
+			.up-button{
+					position: fixed;
+					right: 0;
+					bottom: 0;
+					opacity: 40%;
+					transition: all 300ms cubic-bezier(0.65, 0.06, 0.81, 0.72);
+			}
+
+			.up-button:hover{
+					opacity: 100%;
+			}
+
+			.home-content{
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: var(--universal-gap);
+			}
+
+			.home-content div>h2{
+					text-transform: uppercase;
+			}
+
+			.text-home-content, .img-home-content{
+					display: flex;
+					flex-flow: column wrap;
+					justify-content: center;
+			}
+
+			.img-home-content{
+					margin-left: 10rem;
+			}
+
+			.sobre-content{
+					width: 80rem;
+					margin: 0 auto;
+					text-align: center;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+			}
+
+			.sobre-content h1{
+					margin: 0 auto;
+					text-align: center;
+					font-family: 'Open Sans', sans-serif;
+					padding-bottom: var(--universal-gap);
+			}
+
+			.sobre-content p{
+					padding-bottom: var(--universal-gap);
+					font-size: 2.3rem;
+			}
+
+			.form-contato{
+					grid-column: span 2;
+			}
+
+			.form-contato .grid-contact{
+					border: none;
+					display: flex;
+					flex-flow: row wrap;
+					gap: var(--universal-gap);
+			}
+
+			.grupo{
+					flex: 1 1 40rem;
+			}
+
+			.grupo label{
+					display: block;
+					padding-bottom: 0.5rem;
+			}
+
+			.grupo input, .grupo textarea{
+					width: 100%;
+					background-color: var(--white-color);
+					padding: 1.5rem 2rem;
+					font-size: 2.3rem;
+			}
+
+			.larg-max{
+					width: 100%;
+					flex: 1 1 100%;
+			}
+
+			.form-contato legend{
+					font-style: italic;
+					padding-bottom: 1rem;
+			}
+
+			.grid-contact button{
+					font-size: 2.5rem;
+					padding: 1rem 3rem;
+					border: 0.5rem solid var(--white-color);
+					background-color: #330033;
+					color: var(--white-color);
+					transition: all 300ms ease-in-out;
+			}
+
+			.grid-contact button:hover{
+					background-color: var(--white-color);
+					color: #330033;
+					cursor: pointer;
+			}
+
+			.rodape{
+					height: 10rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+			}
+
+			.rodape a{
+					text-decoration: none;
+					font-size: 1.8rem;
+			}
+
+			.rodape .love{
+					color: rgb(238, 0, 0);
+			}
+
+			.header-contato{
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: var(--universal-gap);
+					padding-bottom: var(--universal-gap);
+			}
+
+			.header-contato .img-cont-content{
+					display: flex;
+					flex: 1 1 30rem;
+					flex-flow: column wrap;
+					justify-content: center;
+					align-items: center;
+			}
+
+			.check-menu{
+					display: none;
+			}
+
+
+			@media (max-width: 999px){
+					.home-content{
+							grid-template-columns: 1fr; 
+					}
+					.img-home-content{
+							justify-self: center;
+							width: 50%;
+							margin: 0;
+					}
+					.header-contato{
+							grid-template-columns: 1fr;
+							width: auto;
+					}
+					.sobre-content{
+							width: auto;
+					}
+			}
+
+			@media (max-width: 650px){
+					.sobre-content{
+							width: auto;
+					}
+					
+					.menu, div.nome-site{
+							display: flex;
+							flex-flow: column wrap;
+							justify-content: center;
+							align-items: center;
+							padding: 0.5rem 0;
+					}
+
+					.menu .sub-menu{
+							display: none;
+					}
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <aside class="barra-naveg white-bg">
+        <nav class="menu menu-content">
+            <div class="nome-site">
+                <h5><a href="#home">Urubu do Pix</a></h5>
+            </div>
+            <div class="sub-menu">
+                <a href="#home">Home</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contact">Contato</a>
+            </div>
+        </nav>
+    </aside>
+    <section id= "home" class="main-bg page">
+        <div class="main-content home-content">
+            <div class="text-home-content">
+                <h2>Urubu do Pix Apostas</h2>
+                <br>
+                <p>Sua nova plataforma de apostas simplificada.</p>
+								<p>Faça suas apostas nas mais diversas modalidades de forma segura e rápida.</p>
+								<p>E, obviamente, por meio do Pix❤️</p>
+            </div>
+            <div class="img-home-content">
+                <img src="https://i.ibb.co/jvbHwxn/Logo-Urubu.png" alt="carta de baralho com a figura de um coringa">
+            </div>
+        </div>
+    </section>
+    <section id="sobre" class="white-bg page">
+        <div class="main-content sobre-content">
+            <h1>Sobre nós</h1> 
+						<p>Olá, somos a plataforma Urubu do Pix Apostas!</p>
+            <p>Hoje em dia, é bastante comum notar a existência de sites voltados para apostas, seja no ramo esportivo, e-sports ou até mesmo de jogos como poker, blackjack, entre outros. E, logicamente, isso evidencia que a busca por esse tipo de serviço cresceu nos últimos anos.</p>
+            <p>Além disso, desde 2020 o Brasil vem usufruindo de uma tecnologia que, sem dúvidas, facilitou muito a vida dos brasileiros no que se diz respeito às transferências de dinheiro em aplicativos de celular. Isso mesmo, estamos falando do PIX</p>
+            <p>As transferências via Pix se tornaram super populares entre os brasileiros e atualmente são aceitas em praticamente todos os estabelecimentos e, devido a sua popularidade, caso você não use pix, você será taxado como uma pessoa que viveu no passado🤣🤣.</p>
+						<p>Pensando nisso, surgiu a ideia do site Urubu do Pix, uma plataforma de apostas simplificada que adota como a sua principal forma de monetização, o pix. Desta forma, vocês conseguem depositar ou sacar os valores da carteira do site de maneira rápida, segura e eficaz.</p>
+        </div>
+    </section>
+    <section id= "contact" class="main-bg page">
+        <div class="main-content">
+            <div class="header-contato">
+                <div class="text-home-content">
+                    <h2>Entre em contato</h2>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla nihil, aliquam veniam velit ipsa, eum quo obcaecati dolore temporibus possimus rerum voluptas sit? Inventore, fugiat voluptatem ipsa modi provident laboriosam?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+                <div class="img-cont-content">
+                    <img src="https://g4bzz.github.io/page-curso/assets/img/contactus.svg" width="100%" height="auto" alt="imagem simbolizando o contato entre duas pessoas por meio de telefone, email e mensagens instantaneas">
+                </div>
+            </div>
+            <div class="form-contato">
+                <form action="" method="GET" name="Formulário de contato">
+                        <legend>Entre em contato:</legend>
+                        <fieldset class="grid-contact">
+                            <div class="grupo">
+                                <label for="GET-nome">Primeiro Nome</label>
+                                <input id="GET-nome" type="text" name="Nome" placeholder="Primeiro nome">
+                            </div>
+                            
+                            <div class="grupo">
+                                <label for="GET-snome">Sobrenome</label>
+                                <input id="GET-snome" type="text" name="Sobrenome" placeholder="Sobrenome">
+                            </div>
+                            
+                            <div class="grupo">
+                                <label for="GET-email">Email</label>
+                                <input id="GET-email" type="email" name="Email" placeholder="Seu melhor email">
+                            </div>
+                            <div class="grupo larg-max">
+                                <label for="GET-msg">Mensagem</label>
+                                <textarea id="GET-msg" name="Mensagem" rows="4" cols="150"></textarea>
+                            </div>
+                            <button type="submit">Enviar mensagem</button>
+                        </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="rodape">
+        <a href="#home">Feito com <span class="love">❤</span> por Gabriel de Oliveira Santos</a>
+    </footer>
+    <div class="up-button" id="up-button">
+        <a role="button" href="#home"><img src="https://g4bzz.github.io/page-curso/assets/img/up-button.svg" width="70" height="70" alt="Botão para voltar ao topo da página no formato de seta apontada para cima."></a>
+    </div>
+		<script>
+			const myTimeout = setInterval(showUpButton, 500);
+
+			function showUpButton(){
+				var elem = document.documentElement;
+				var scrollPos = elem.scrollTop
+				if(scrollPos != 0){
+					$("#up-button").fadeIn();
+				}
+				else{
+					$("#up-button").fadeOut();
+				}
+			}
+		</script>
+</body>
+</html>
